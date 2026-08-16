@@ -1,49 +1,75 @@
 # Scan-Go Smart Trolley
 
+An ESP32-based smart shopping trolley designed to automate product collection using autonomous path navigation, QR-code-based product identification, Firebase communication, obstacle detection, and a robotic arm.
+
 ## Project Overview
 
-The Scan-Go Smart Trolley is a smart shopping system designed to automate product collection and improve the shopping experience. The system combines a mobile application, Firebase Real-Time Database, and an ESP32-based trolley.
+The Scan-Go Smart Trolley is designed to improve the shopping experience by reducing the need for manually searching for products inside a store.
 
-## Features
+The system combines:
 
-- Product selection through the mobile application
-- QR-based product identification
-- Firebase-based communication between the application and trolley
-- Autonomous trolley navigation using IR sensors
-- Product destination node detection
-- Ultrasonic obstacle detection
-- Robotic arm for pick-and-place operations
-- Scan confirmation before proceeding to the next product
-- Completion status through Firebase
-
-## Hardware
-
-- ESP32
-- IR sensors
-- Ultrasonic sensor
-- L298N motor driver
-- DC motors
-- PCA9685 servo driver
-- Servo motors
-- Robotic arm
-
-## Software and Technologies
-
-- Embedded C/C++
-- Arduino IDE
+- A mobile application
 - Firebase Realtime Database
-- ESP32
-- IR sensor-based line following
+- ESP32-based trolley control
+- IR-based path following
 - Ultrasonic obstacle detection
+- Robotic arm for product handling
+- QR-code-based product identification
 
-## ESP32 Trolley Firmware
+The mobile application communicates with Firebase, while the ESP32 retrieves the required tasks and controls the trolley hardware.
 
-The ESP32 firmware handles Firebase communication, autonomous navigation, obstacle detection, destination node detection, and robotic-arm pick-and-place operations.
+---
 
-## Project Architecture
+## Objectives
 
-Mobile Application → Firebase Realtime Database → ESP32 Trolley
+- Automate product collection inside a store.
+- Navigate the trolley to predefined product locations.
+- Identify products using QR codes.
+- Synchronize shopping tasks using Firebase.
+- Detect obstacles in front of the trolley.
+- Use a robotic arm for product pick-and-place operations.
+- Provide a connected mobile application for the shopping process.
 
-## Project Status
+---
 
-Academic project completed as part of the undergraduate engineering project.
+## System Architecture
+
+```text
++----------------------+
+|   Mobile Application |
++----------+-----------+
+           |
+           | Product / Task Data
+           v
++----------------------+
+| Firebase Realtime DB |
++----------+-----------+
+           |
+           | Commands / Tasks
+           v
++----------------------+
+|        ESP32         |
+|   Main Controller    |
++----+------+------+---+
+     |      |      |
+     |      |      |
+     v      v      v
+  Motor    IR    Ultrasonic
+  Driver Sensors  Sensor
+     |
+     v
++----------------------+
+|   Trolley Movement   |
++----------+-----------+
+           |
+           | Target Node
+           v
++----------------------+
+|    PCA9685 Driver    |
++----------+-----------+
+           |
+           v
++----------------------+
+|    Robotic Arm       |
+|    4 Servo Motors    |
++----------------------+
