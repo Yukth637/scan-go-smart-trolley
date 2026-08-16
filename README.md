@@ -1,54 +1,49 @@
-# Smart Home Security System using Face Recognition
+# Scan-Go Smart Trolley
 
 ## Project Overview
 
-The Smart Home Security System is an embedded security solution that uses face recognition for user authentication and an Arduino-controlled access mechanism. The system is designed to provide secure and automated door access while supporting real-time security responses.
+The Scan-Go Smart Trolley is a smart shopping system designed to automate product collection and improve the shopping experience. The system combines a mobile application, Firebase Real-Time Database, and an ESP32-based trolley.
 
-## Objectives
+## Features
 
-- Provide secure access using face recognition.
-- Authenticate authorized users before granting access.
-- Control the door-locking mechanism using Arduino.
-- Trigger an alarm when unauthorized access is detected.
-- Integrate hardware and software for real-time security control.
-
-## Technologies Used
-
-- Embedded C
-- Arduino
-- Face Recognition
-- Embedded Systems
-- Hardware-Software Integration
+- Product selection through the mobile application
+- QR-based product identification
+- Firebase-based communication between the application and trolley
+- Autonomous trolley navigation using IR sensors
+- Product destination node detection
+- Ultrasonic obstacle detection
+- Robotic arm for pick-and-place operations
+- Scan confirmation before proceeding to the next product
+- Completion status through Firebase
 
 ## Hardware
 
-- Arduino
-- Door-locking mechanism
-- Face recognition module/system
-- Alarm/buzzer
-- Supporting electronic components
+- ESP32
+- IR sensors
+- Ultrasonic sensor
+- L298N motor driver
+- DC motors
+- PCA9685 servo driver
+- Servo motors
+- Robotic arm
 
-## Working
+## Software and Technologies
 
-1. The system captures the user's face for authentication.
-2. The captured face is compared with the authorized user data.
-3. If the user is authorized, the Arduino controls the locking mechanism to provide access.
-4. If the user is not authorized, access is denied and the security response is triggered.
-5. Embedded C is used to implement the control logic, authorization decisions, alarm triggering, and hardware actuation.
+- Embedded C/C++
+- Arduino IDE
+- Firebase Realtime Database
+- ESP32
+- IR sensor-based line following
+- Ultrasonic obstacle detection
 
-## My Contribution
+## ESP32 Trolley Firmware
 
-- Developed the smart door-locking system.
-- Implemented embedded control logic using Embedded C.
-- Worked on authorization decisions and access control.
-- Integrated the Arduino with the security hardware.
-- Implemented alarm triggering for security response.
-- Worked on hardware-software integration for real-time operation.
+The ESP32 firmware handles Firebase communication, autonomous navigation, obstacle detection, destination node detection, and robotic-arm pick-and-place operations.
 
-## Key Outcome
+## Project Architecture
 
-Developed a practical embedded security system demonstrating face-based authentication, automated access control, and real-time hardware response.
+Mobile Application → Firebase Realtime Database → ESP32 Trolley
 
-## Domain
+## Project Status
 
-Embedded Systems | Cybersecurity | Hardware-Software Integration
+Academic project completed as part of the undergraduate engineering project.
